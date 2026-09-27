@@ -33,21 +33,7 @@ El usuario podrá definir sus preferencias cinematográficas para obtener recome
 
 Entre las características que podrían utilizarse se encuentran:
 
-Géneros
-
-Actores
-
-Directores
-
-Palabras clave
-
-Año de lanzamiento
-
-Valoración
-
-Popularidad
-
-Sinopsis
+Géneros, Actores, Directores, Palabras clave, Año de lanzamiento, Valoración, Popularidad, Sinopsis
 
 Otras características disponibles en los datos de TMDB
 
@@ -55,23 +41,7 @@ Otras características disponibles en los datos de TMDB
 
 Las películas mostradas podrán incluir información como:
 
-Título
-
-Póster
-
-Sinopsis
-
-Géneros
-
-Fecha de estreno
-
-Valoración
-
-Popularidad
-
-Reparto
-
-Director
+Título, Póster, Sinopsis, Géneros, Fecha de estreno, Valoración, Popularidad, Reparto, Director
 
 La información se obtendrá mediante la API de The Movie Database.
 
@@ -83,17 +53,7 @@ Actualmente, el modelo concreto todavía no está definido. Durante el desarroll
 
 Algunas técnicas que podrían estudiarse son:
 
-K-Means
-
-Clustering jerárquico
-
-DBSCAN
-
-Similitud del coseno
-
-Técnicas de reducción de dimensionalidad
-
-Sistemas de recomendación basados en contenido
+K-Means, Clustering jerárquico, DBSCAN, Técnicas de reducción de dimensionalidad
 
 ⚠️ Nota: estas técnicas son posibilidades a estudiar y no representan todavía la implementación definitiva del proyecto.
 
@@ -106,7 +66,7 @@ Tecnología	Uso
 🌐 HTML	Estructura de las páginas web
 🎨 CSS	Diseño y estilos de la interfaz
 🎬 TMDB API	Obtención de información sobre películas
-🤖 Cohere API	Integración futura de funcionalidades basadas en IA
+🤖 Cohere API	Integración futura de funcionalidades basadas en IA (posiblemente)
 
 El framework web de Python se determinará durante el desarrollo del proyecto.
 
