@@ -233,28 +233,20 @@ movie-recommender/
 
 🚀 Instalación
 1. Clonar el repositorio
-git clone https://github.com/USERNAME/movie-recommender.git
+git clone https://github.com/Proyectos-UE/Proyecto-infraestructura.git
 cd movie-recommender
 
-2. Crear un entorno virtual
-python -m venv venv
+(todavia no se ha hecho, para hacer a futuro)
+
+3. Crear un entorno virtual usando miniconda con el comando
+conda create -n "nombre del entorno"
 
 
-Activar el entorno virtual:
-
-Windows
-
-venv\Scripts\activate
-
-
-Linux / macOS
-
-source venv/bin/activate
-
-3. Instalar las dependencias
+3. Instalar las dependencias dentro del entorno
 pip install -r requirements.txt
 
-4. Configurar las variables de entorno
+(todavia no se ha hecho, para hacer a futuro)
+5. Configurar las variables de entorno
 
 Crear un archivo .env en la raíz del proyecto:
 
