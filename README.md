@@ -233,83 +233,83 @@ El proyecto se encuentra actualmente en desarrollo.
 
 🟢 Fase 1 — Planificación
 
- Definir la idea del proyecto
+  - Definir la idea del proyecto
 
- Seleccionar TMDB como fuente de datos
+  - Seleccionar TMDB como fuente de datos
 
- Definir el uso de aprendizaje no supervisado
+  - Definir el uso de aprendizaje no supervisado
 
- Analizar los datos disponibles
+  - Analizar los datos disponibles
 
- Determinar las variables que utilizará el recomendador
+  - Determinar las variables que utilizará el recomendador
 
 🟡 Fase 2 — Obtención y preparación de datos
 
- Conectar con la API de TMDB
+  - Conectar con la API de TMDB
 
- Obtener información de películas
+  - Obtener información de películas
 
- Limpiar los datos
+  - Limpiar los datos
 
- Seleccionar las características relevantes
+  - Seleccionar las características relevantes
 
  Transformar los datos para utilizarlos en el modelo
 
 🟡 Fase 3 — Sistema de recomendación
 
- Estudiar diferentes algoritmos no supervisados
+  - Estudiar diferentes algoritmos no supervisados
 
- Implementar diferentes alternativas
+  - Implementar diferentes alternativas
 
- Evaluar los resultados
+  - Evaluar los resultados
 
- Seleccionar la técnica utilizada
+  - Seleccionar la técnica utilizada
 
- Implementar recomendaciones basadas en una película
+  - Implementar recomendaciones basadas en una película
 
- Implementar recomendaciones basadas en varias películas
+  - Implementar recomendaciones basadas en varias películas
 
- Implementar recomendaciones basadas en preferencias
+  - Implementar recomendaciones basadas en preferencias
 
 🟠 Fase 4 — Aplicación web
 
- Crear la interfaz principal
+  - Crear la interfaz principal
 
- Implementar búsqueda de películas
+  - Implementar búsqueda de películas
 
- Permitir seleccionar películas favoritas
+  - Permitir seleccionar películas favoritas
 
- Mostrar recomendaciones
+  - Mostrar recomendaciones
 
- Mostrar información detallada de las películas
+  - Mostrar información detallada de las películas
 
- Mejorar el diseño y la experiencia de usuario
+ - Mejorar el diseño y la experiencia de usuario
 
 🔵 Fase 5 — Inteligencia artificial
 
- Investigar integración con Cohere
+  - Investigar integración con Cohere
 
- Diseñar posibles funcionalidades
+  - Diseñar posibles funcionalidades
 
- Integrar Cohere API
+  - Integrar Cohere API
 
- Añadir interacción mediante lenguaje natural
+ - Añadir interacción mediante lenguaje natural
 
- Evaluar la utilidad de la IA dentro del sistema
+  - Evaluar la utilidad de la IA dentro del sistema
 
 🟣 Fase 6 — Mejoras
 
- Optimizar el sistema de recomendación
+ - Optimizar el sistema de recomendación
 
- Mejorar el rendimiento
+ - Mejorar el rendimiento
 
- Añadir tests
+  - Añadir tests
 
- Mejorar la interfaz
+  - Mejorar la interfaz
 
- Documentar el proyecto
+  - Documentar el proyecto
 
- Preparar el despliegue
+  - Preparar el despliegue
 
 📊 Posibles criterios de recomendación
 
@@ -358,30 +358,28 @@ __pycache__/
 
 🤝 Contribución
 
-Las contribuciones son bienvenidas.
-
 Para contribuir:
 
-Haz un fork del repositorio.
+1. Haz un fork del repositorio.
 
-Crea una nueva rama:
+2. Crea una nueva rama:
 
 git checkout -b feature/nueva-funcionalidad
 
 
-Realiza tus cambios.
+3. Realiza tus cambios.
 
-Haz commit de los cambios:
+4. Haz commit de los cambios:
 
 git commit -m "feat: añadir nueva funcionalidad"
 
 
-Sube la rama:
+5. Sube la rama:
 
 git push origin feature/nueva-funcionalidad
 
 
-Abre un Pull Request.
+6. Abre un Pull Request.
 
 📚 Tecnologías
 
@@ -403,21 +401,15 @@ Abre un Pull Request.
 
 Proyecto desarrollado por:
 
-Andrea Belaunzaran
+- Andrea Belaunzaran
 
-Ashley Harris
+- Ashley Harris
 
-Anastasia Lagüera 
+- Anastasia Lagüera 
 
-Iñigo Erce 
+- Iñigo Erce 
 
-📄 Licencia
-
-Este proyecto se desarrolla con fines educativos.
-
-La licencia definitiva del proyecto se determinará durante el desarrollo.
-
-🎬 Estado del proyecto
+🎬 Estado del proyecto:
 
 🚧 En desarrollo
 
