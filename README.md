@@ -143,7 +143,7 @@ Este proyecto utiliza datos proporcionados por TMDB y debe cumplir las condicion
 🏗️ Arquitectura prevista
 
 De forma general, el proyecto seguirá una arquitectura similar a:
-
+```text
 ┌─────────────────────┐
 │       Usuario       │
 └──────────┬──────────┘
@@ -230,7 +230,7 @@ movie-recommender/
 ├── requirements.txt
 ├── README.md
 └── run.py
-
+```
 🚀 Instalación
 1. Clonar el repositorio
 git clone https://github.com/Proyectos-UE/Proyecto-infraestructura.git
