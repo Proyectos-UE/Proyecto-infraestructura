@@ -361,7 +361,7 @@ __pycache__/
 Para contribuir:
 
 1. Haz un clon del repositorio.
-   git clone [https://github.com/USUARIO/REPOSITORIO.git](https://github.com/Proyectos-UE/Proyecto-infraestructura.git)
+   git clone [https://github.com/Proyectos-UE/Proyecto-infraestructura.git](https://github.com/Proyectos-UE/Proyecto-infraestructura.git)
 
 2. Crea una nueva rama y cambiáte a esta de manera automática:
    git switch -c rama_ejemplo
