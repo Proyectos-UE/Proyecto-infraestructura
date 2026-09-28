@@ -360,26 +360,44 @@ __pycache__/
 
 Para contribuir:
 
-1. Haz un fork del repositorio.
+1. Haz un clon del repositorio.
+   git clone [https://github.com/USUARIO/REPOSITORIO.git](https://github.com/Proyectos-UE/Proyecto-infraestructura.git)
 
-2. Crea una nueva rama:
+2. Crea una nueva rama y cambiáte a esta de manera automática:
+   git switch -c rama_ejemplo
+   Cada vez que te quieras cambiar a una rama usar comando:
+   git switch nombre_rama
+   Para comprobar la rama, sale abajo a la izquiera o usar comando:
+   git branch
+   
+3. Comprueba que estas conectado correctamente:
+   git remote -v
+4. Comprueba que tienes el proyecto actualizado usando fetch:
+   - Si estas en la rama_ejemplo:
+     git switch main
+     git pull origin main
+     git switch rama_ejemplo
+     git merge main
+   - Si ya estas en la rama main (que no deberías):
+     git pull origin main
 
-git checkout -b feature/nueva-funcionalidad
+
+5. Realiza tus cambios.
+6. Añadir tus cambias usando:
+   git add nombre_del_archivo
+   o:
+   git add . (para cambiar todos los archivos)
+
+7. Haz commit de los cambios:
+   git commit -m "feat: añadir nueva funcionalidad"
 
 
-3. Realiza tus cambios.
-
-4. Haz commit de los cambios:
-
-git commit -m "feat: añadir nueva funcionalidad"
+8. Sube la rama:
+   git push -u origin rama_ejemplo
 
 
-5. Sube la rama:
+9. Abre un Pull Request y resolver posibles conflictos.
 
-git push origin feature/nueva-funcionalidad
-
-
-6. Abre un Pull Request.
 
 📚 Tecnologías
 
