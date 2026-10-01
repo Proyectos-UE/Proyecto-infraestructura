@@ -1,0 +1,23 @@
+Pequeña guia para entender lo que estamos haciendo y lo que queremos hacer
+Como funciona nuestra web? (Se puede modificar a futuro)
+El usuario hace una pequeña encuesta en donde indica sus preferencias.
+Estas preferencias se guardan en una base de datos.
+Nuestro sistema de recomendación (nuestro modelo) hará sus predicciones usando los datos de la base de datos como 
+test.
+Llamaremos a una API de la IA de Cohere.
+Esta leerá nuestra predicción y de ahí hará un pequeño resumen del porqué nuestro modelo ha dado ese resultado,
+es decir, porque ha recomendado x pelicula.
+Más:
+El usuario podrá buscar pelis y ver su información. 
+Puede añadir las pelis a una lista de películas que le han gustado (si ha iniciado sesion en la web) 
+Puede añadir las pelis a una lista de "ver en un futuro"
+Estas variables se añadirán en la base de datos para hacer predicciones.
+
+Como funciona el modelo?
+En un principio usaremos un modelo supervisado, usaremos un notebook para probar diferentes modelos y combinacionesç
+para ver cual es la mejor y la decisión final.
+Este modelo se entrena con los datos de la API de TMDB.
+Hace predicciones con los datos de nuestra base de datos.
+Devuelve la predicción en forma json (en un principio) y se leerá el json en cohere.
+El modelo se exporta en formato pickle usando la librería de pickle. 
+
