@@ -163,7 +163,56 @@
         <p>Popular movies from TMDB</p>
 
     </header>
+    <form action="/search" method="get" class="search-form">
+        <input
+            type="text"
+            name="title"
+            placeholder="Search for a movie..."
+            required
+        >
 
+        <button type="submit">
+            Search
+        </button>
+    </form>
+    <style>
+    .search-form {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .search-form input {
+        width: 350px;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        background: #191c24;
+        color: white;
+        outline: none;
+    }
+
+    .search-form input::placeholder {
+        color: #888;
+    }
+
+    .search-form button {
+        padding: 12px 22px;
+        border: none;
+        border-radius: 8px;
+        background: #6696ff;
+        color: #111;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .search-form button:hover {
+        opacity: 0.85;
+    }
+    </style>
 
     <main class="container">
 

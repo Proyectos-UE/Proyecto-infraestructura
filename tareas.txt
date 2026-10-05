@@ -21,3 +21,7 @@ Hace predicciones con los datos de nuestra base de datos.
 Devuelve la predicción en forma json (en un principio) y se leerá el json en cohere.
 El modelo se exporta en formato pickle usando la librería de pickle. 
 
+Para poder iniciar el proyecto: 
+- IMP!!! Crear archivo .env en donde tendreis que poner vuestra API key de TMDB y despues guardar este .env en .gitignore
+- Usar tu entorno virtual con las librerias adeuadas (requirements.txt)
+- En la terminal, estando en la carpeta de app, usar el comando: uvicorn app:app --reload

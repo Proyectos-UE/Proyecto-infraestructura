@@ -1,7 +1,7 @@
 #test para ver los datos que nos devuelve la API
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
-from tmdb.api import get_movies
+from tmdb.api import get_movies, search_movies
 
 app = FastAPI()
 
@@ -18,5 +18,19 @@ def home(request: Request):
         name="index.html",
         context={
             "movies": movies["results"]
+        }
+    )
+
+@app.get("/search")
+def search(request: Request, title: str):
+
+    results = search_movies(title)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="search.html",
+        context={
+            "movies": results["results"],
+            "title": title
         }
     )
