@@ -1,5 +1,7 @@
 Pequeña guia para entender lo que estamos haciendo y lo que queremos hacer
 Como funciona nuestra web? (Se puede modificar a futuro)
+El usuario nada más entrar le aparecen las películas más populares.
+Puede buscar películas a través de un get a la API TMDB
 El usuario hace una pequeña encuesta en donde indica sus preferencias.
 Estas preferencias se guardan en una base de datos.
 Nuestro sistema de recomendación (nuestro modelo) hará sus predicciones usando los datos de la base de datos como 
@@ -8,9 +10,9 @@ Llamaremos a una API de la IA de Cohere.
 Esta leerá nuestra predicción y de ahí hará un pequeño resumen del porqué nuestro modelo ha dado ese resultado,
 es decir, porque ha recomendado x pelicula.
 Más:
-El usuario podrá buscar pelis y ver su información. 
-Puede añadir las pelis a una lista de películas que le han gustado (si ha iniciado sesion en la web) 
-Puede añadir las pelis a una lista de "ver en un futuro"
+El usuario podrá buscar pelis y ver su información. (usando la API TMDB)
+Puede añadir las pelis a una lista de películas que le han gustado (si ha iniciado sesion en la web, usando nuestra API) 
+Puede añadir las pelis a una lista de "ver en un futuro" (usando nuestra API)
 Estas variables se añadirán en la base de datos para hacer predicciones.
 
 Como funciona el modelo?
@@ -22,6 +24,15 @@ Devuelve la predicción en forma json (en un principio) y se leerá el json en c
 El modelo se exporta en formato pickle usando la librería de pickle. 
 
 Para poder iniciar el proyecto: 
-- IMP!!! Crear archivo .env en donde tendreis que poner vuestra API key de TMDB y despues guardar este .env en .gitignore
-- Usar tu entorno virtual con las librerias adeuadas (requirements.txt)
+- IMP!!! Crear archivo .env en donde tendreis que poner vuestra API key de TMDB, ADMIN_API_KEY (este lo creais vosotros) y después guardar este .env en .gitignore
+- Usar tu entorno virtual con las librerias adecuadas (requirements.txt)
 - En la terminal, estando en la carpeta de app, usar el comando: uvicorn app:app --reload
+Para mirar la documentación usar la ruta /docs
+Para mirar que el admin status es correcto, entrar a /docs y probar con tu ADMIN_API_KEY en authorize.
+
+Falta todavía:
+-Función login de usuario para guardar listas. Aquí se aplicará la función de autenticación y autorización (probablemente usando JWT)
+autenticación para poder hacer login
+autorización para poder modificar la lista y preferencias 
+
+-Bajar los datos de la base de datos, estos se usarán para el modelo y necesitaremos de una autenticación para ello pero diferente a lo de las APIs
