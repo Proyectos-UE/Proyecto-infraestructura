@@ -434,3 +434,127 @@ Proyecto desarrollado por:
 El sistema de recomendación, la arquitectura definitiva y la integración con inteligencia artificial se encuentran todavía en fase de investigación y desarrollo.
 
 <p align="center"> 🎬 <strong>Movie Recommendation System</strong> <br> <sub>Encuentra tu próxima película favorita.</sub> </p>
+
+
+# API REST de Películas (FastAPI + Uvicorn) - Entregable 1
+
+## Instrucciones de Ejecución Local
+
+1. Instalar las dependencias necesarias:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Configurar las variables de entorno:
+   Copiar `.env.example` a `.env` y definir la clave secreta:
+   ```bash
+   SECRET_API_KEY=mi_token_secreto_123
+   ```
+
+3. Ejecutar el servidor Uvicorn:
+   ```bash
+   python app/app.py
+   ```
+   O alternativamente desde el módulo app:
+   ```bash
+   uvicorn app.app:app --reload
+   ```
+
+4. Acceder a la documentación OpenAPI interactiva (Swagger UI) en:
+   `http://127.0.0.1:8000/docs`
+
+---
+
+## Ejemplos de Peticiones y Casos de Prueba
+
+### 1. Petición Correcta (Sin Autenticación)
+* **GET** `/api/movies?page=1`
+* **cURL:**
+  ```bash
+  curl -X GET "[http://127.0.0.1:8000/api/movies?page=1](http://127.0.0.1:8000/api/movies?page=1)"
+  ```
+* **Respuesta Esperada (200 OK):**
+  ```json
+  {
+    "page": 1,
+    "results": [
+      {"id": 1, "title": "Inception", "year": 2010},
+      {"id": 2, "title": "Interstellar", "year": 2014}
+    ]
+  }
+  ```
+
+---
+
+### 2. Petición con Parámetro Inválido (Validación Pydantic)
+* **GET** `/api/movies?page=0` (El parámetro debe ser >= 1)
+* **cURL:**
+  ```bash
+  curl -X GET "[http://127.0.0.1:8000/api/movies?page=0](http://127.0.0.1:8000/api/movies?page=0)"
+  ```
+* **Respuesta Esperada (422 Unprocessable Entity):**
+  ```json
+  {
+    "detail": [
+      {
+        "type": "greater_than_equal",
+        "loc": ["query", "page"],
+        "msg": "Input should be greater than or equal to 1"
+      }
+    ]
+  }
+  ```
+
+---
+
+### 3. Petición Protegida Correcta (Con Autenticación)
+* **POST** `/api/favorites`
+* **cURL:**
+  ```bash
+  curl -X POST "[http://127.0.0.1:8000/api/favorites](http://127.0.0.1:8000/api/favorites)" \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer mi_token_secreto_123" \
+       -d '{"movie_id": 1}'
+  ```
+* **Respuesta Esperada (201 Created):**
+  ```json
+  {
+    "message": "Película añadida a favoritos con éxito",
+    "movie_id": 1
+  }
+  ```
+
+---
+
+### 4. Petición Sin Autenticación (401 Unauthorized)
+* **POST** `/api/favorites`
+* **cURL:**
+  ```bash
+  curl -X POST "[http://127.0.0.1:8000/api/favorites](http://127.0.0.1:8000/api/favorites)" \
+       -H "Content-Type: application/json" \
+       -d '{"movie_id": 1}'
+  ```
+* **Respuesta Esperada (401 Unauthorized):**
+  ```json
+  {
+    "detail": "Not authenticated"
+  }
+  ```
+
+---
+
+### 5. Petición con Token Incorrecto (403 Forbidden)
+* **POST** `/api/favorites`
+* **cURL:**
+  ```bash
+  curl -X POST "[http://127.0.0.1:8000/api/favorites](http://127.0.0.1:8000/api/favorites)" \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer token_falso" \
+       -d '{"movie_id": 1}'
+  ```
+* **Respuesta Esperada (403 Forbidden):**
+  ```json
+  {
+    "detail": "Acceso no autorizado: Token inválido"
+  }
+  ```
