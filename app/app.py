@@ -24,13 +24,23 @@ def home(request: Request):
 @app.get("/search")
 def search(request: Request, title: str):
 
-    results = search_movies(title)
+    if not title:
+        return templates.TemplateResponse(
+            request=request,
+            name="index.html",
+            context={
+                "movies": get_movies()["results"]
+            }
+        )
+
+    search_results = search_movies(title)
 
     return templates.TemplateResponse(
         request=request,
         name="search.html",
         context={
-            "movies": results["results"],
+            "movies": search_results["results"],
             "title": title
         }
     )
+

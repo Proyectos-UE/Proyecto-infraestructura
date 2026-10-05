@@ -11,15 +11,31 @@ headers = {
     "accept": "application/json"
 }
 
-
+def hacer_request(url, params = None):
+    try:
+        response = requests.get(url, headers=headers,params=params, timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except requests.Timeout:
+        print("Request timed out")
+        return None
+    except requests.HTTPError as exc:
+        print("HTTP error:", exc.response.status_code)
+        return None
+    except requests.exceptions.JSONDecodeError:
+        print("The response is not valid JSON")
+        return None
+    except requests.RequestException:
+        print("Connection error")
+        return None
+        
 def get_movies():
     """
     Devuelve todas las pelis
     """
     url = "https://api.themoviedb.org/3/movie/popular"
-    response = requests.get(url, headers=headers)
 
-    return response.json()
+    return hacer_request(url)
 
 def search_movies(title):
     """
@@ -36,5 +52,4 @@ def search_movies(title):
         headers=headers,
         params=params
     )
-
-    return response.json()
+    return hacer_request(url, params)

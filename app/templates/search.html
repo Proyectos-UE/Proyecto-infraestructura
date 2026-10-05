@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Search Movies - Movie Recommender</title>
+    <title>Search - Movie Recommender</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -36,48 +37,48 @@
             font-size: 17px;
         }
 
-        .search-box {
-            margin: 25px auto 0;
+
+        /* SEARCH */
+
+        .search-form {
+            margin-top: 25px;
             display: flex;
             justify-content: center;
+            gap: 10px;
         }
 
-        .search-box form {
-            display: flex;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .search-box input {
-            flex: 1;
-            padding: 14px 18px;
+        .search-form input {
+            width: 350px;
+            padding: 12px 16px;
             border: none;
-            border-radius: 8px 0 0 8px;
+            border-radius: 8px;
+            font-size: 16px;
             background: #191c24;
             color: white;
-            font-size: 16px;
             outline: none;
         }
 
-        .search-box input::placeholder {
-            color: #888f9c;
+        .search-form input::placeholder {
+            color: #888;
         }
 
-        .search-box button {
-            padding: 14px 24px;
+        .search-form button {
+            padding: 12px 22px;
             border: none;
-            border-radius: 0 8px 8px 0;
-            background: #2b67a6;
-            color: #171a21;
+            border-radius: 8px;
+            background: #6696ff;
+            color: #111;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s ease;
         }
 
-        .search-box button:hover {
-            background: #85aeff;
+        .search-form button:hover {
+            opacity: 0.85;
         }
+
+
+        /* CONTAINER */
 
         .container {
             max-width: 1400px;
@@ -85,21 +86,23 @@
             padding: 0 30px;
         }
 
-        .search-title {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
         .count {
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             color: #9da3ae;
         }
+
+
+        /* MOVIE GRID */
 
         .movies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 30px;
+            margin-top: 30px;
         }
+
+
+        /* MOVIE CARD */
 
         .movie-card {
             background: #191c24;
@@ -113,6 +116,9 @@
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
         }
+
+
+        /* POSTER */
 
         .poster {
             width: 100%;
@@ -129,6 +135,9 @@
             background: #292d38;
             color: #888;
         }
+
+
+        /* MOVIE INFO */
 
         .movie-info {
             padding: 18px;
@@ -148,7 +157,7 @@
         }
 
         .rating {
-            color: #8a66ff;
+            color: #ffd166;
             font-weight: bold;
         }
 
@@ -163,16 +172,27 @@
             overflow: hidden;
         }
 
+
+        /* NO RESULTS */
+
         .no-results {
             text-align: center;
-            padding: 80px 20px;
-            color: #9da3ae;
+            margin-top: 80px;
+            padding: 40px;
+            background: #191c24;
+            border-radius: 14px;
         }
 
         .no-results h2 {
-            color: white;
             margin-bottom: 10px;
         }
+
+        .no-results p {
+            color: #9da3ae;
+        }
+
+
+        /* MOBILE */
 
         @media (max-width: 600px) {
 
@@ -186,14 +206,6 @@
 
             .container {
                 padding: 0 15px;
-            }
-
-            .search-box form {
-                max-width: 100%;
-            }
-
-            .search-box input {
-                min-width: 0;
             }
 
             .movies-grid {
@@ -216,7 +228,23 @@
             .movie-title {
                 font-size: 16px;
             }
+
+            .search-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-form input {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .search-form button {
+                width: 100%;
+                max-width: 350px;
+            }
         }
+
     </style>
 </head>
 
@@ -227,37 +255,31 @@
 
         <h1>Movie Recommender</h1>
 
-        <p>Search for your favorite movies</p>
+        <p>Search results from TMDB</p>
 
+        <form action="/search" method="get" class="search-form">
 
-        <div class="search-box">
+            <input
+                type="text"
+                name="title"
+                placeholder="Search for a movie..."
+                value="{{ title }}"
+            >
 
-            <form action="/search" method="get">
+            <button type="submit">
+                Search
+            </button>
 
-                <input
-                    type="text"
-                    name="movie_name"
-                    placeholder="Search for a movie..."
-                    value="{{ movie_name }}"
-                    required
-                >
-
-                <button type="submit">
-                    Search
-                </button>
-
-            </form>
-
-        </div>
+        </form>
 
     </header>
 
 
     <main class="container">
 
-        <h2 class="search-title">
-            Results for "{{ movie_name }}"
-        </h2>
+        <p class="count">
+            Results for "{{ title }}"
+        </p>
 
         <p class="count">
             Found {{ movies|length }} movies
@@ -331,7 +353,6 @@
 
             </div>
 
-
         {% else %}
 
             <div class="no-results">
@@ -339,7 +360,8 @@
                 <h2>No movies found</h2>
 
                 <p>
-                    We couldn't find any movies matching "{{ movie_name }}".
+                    We couldn't find any movies matching
+                    "{{ title }}".
                 </p>
 
             </div>
