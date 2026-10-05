@@ -352,7 +352,7 @@ Las claves de las APIs se almacenarán mediante variables de entorno y no se inc
 El archivo .env deberá estar incluido en .gitignore:
 
 .env
-venv/
+.venv/
 __pycache__/
 *.pyc
 
