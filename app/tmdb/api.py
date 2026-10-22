@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 token = os.getenv("TMDB_API_TOKEN")
+print("Token cargado:", token is not None)
 
 headers = {
     "Authorization": f"Bearer {token}",
@@ -28,6 +29,7 @@ def hacer_request(url, params = None):
     except requests.RequestException:
         print("Connection error")
         return None
+
         
 def get_movies():
     """
@@ -47,9 +49,4 @@ def search_movies(title):
         "language": "es-ES"
     }
 
-    response = requests.get(
-        url,
-        headers=headers,
-        params=params
-    )
     return hacer_request(url, params)
