@@ -50,18 +50,18 @@ def movies():
     return movies["results"]
 
 @rutas.get("/search")
-def search(request: Request, title: str):
-    if not title:
-        movies = get_movies()
+def search(request: Request, title: str=""):
 
-    if movies is None:
+    result_search = search_movies(title)
+
+    if result_search is None:
         movie_service_error()
-    
+
     return templates.TemplateResponse(
         request=request,
         name="search.html",
         context={
-            "movies": movies["results"],
+            "movies": result_search["results"],
             "title": title
         }
     )
