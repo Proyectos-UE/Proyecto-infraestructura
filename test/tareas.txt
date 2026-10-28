@@ -26,7 +26,7 @@ El modelo se exporta en formato pickle usando la librería de pickle.
 Para poder iniciar el proyecto: 
 - IMP!!! Crear archivo .env en donde tendreis que poner vuestra API key de TMDB, ADMIN_API_KEY (este lo creais vosotros) y después guardar este .env en .gitignore
 - Usar tu entorno virtual con las librerias adecuadas (requirements.txt)
-- En la terminal, estando en la carpeta de app, usar el comando: uvicorn app:app --reload
+- En la terminal, estando en la carpeta de app, usar el comando: uvicorn backend.main:app --reload --port 8080
 Para mirar la documentación usar la ruta /docs
 Para mirar que el admin status es correcto, entrar a /docs y probar con tu ADMIN_API_KEY en authorize.
 
