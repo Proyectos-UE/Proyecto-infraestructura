@@ -274,6 +274,199 @@ La relación entre las tablas sería:
                          └──────────────────────┘
 ```
 
+<<<<<<< HEAD
+🟠 Fase 4 — Aplicación web
+
+  - Crear la interfaz principal
+
+  - Implementar búsqueda de películas
+
+  - Permitir seleccionar películas favoritas
+
+  - Mostrar recomendaciones
+
+  - Mostrar información detallada de las películas
+
+ - Mejorar el diseño y la experiencia de usuario
+
+🔵 Fase 5 — Inteligencia artificial
+
+  - Investigar integración con Cohere
+
+  - Diseñar posibles funcionalidades
+
+  - Integrar Cohere API
+
+ - Añadir interacción mediante lenguaje natural
+
+  - Evaluar la utilidad de la IA dentro del sistema
+
+🟣 Fase 6 — Mejoras
+
+ - Optimizar el sistema de recomendación
+
+ - Mejorar el rendimiento
+
+  - Añadir tests
+
+  - Mejorar la interfaz
+
+  - Documentar el proyecto
+
+  - Preparar el despliegue
+
+📊 Posibles criterios de recomendación
+
+Dependiendo de los datos disponibles y del modelo finalmente seleccionado, las recomendaciones podrían tener en cuenta diferentes características:
+
+                    ┌──────────────┐
+                    │   Película   │
+                    └──────┬───────┘
+                           │
+       ┌───────────┬───────┼───────────┬───────────┐
+       ▼           ▼       ▼           ▼           ▼
+    Géneros    Actores  Director   Keywords     Sinopsis
+       │           │       │           │           │
+       └───────────┴───────┴───────────┴───────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │ Sistema de      │
+                  │ recomendación   │
+                  └────────┬────────┘
+                           │
+                           ▼
+                 🎬 Películas similares
+
+
+La importancia de cada característica dependerá de los resultados obtenidos durante la fase de experimentación.
+
+🧪 Evaluación
+
+Uno de los objetivos del proyecto será analizar la calidad de las recomendaciones obtenidas.
+
+Para ello se estudiarán diferentes métricas y métodos de evaluación adecuados al tipo de sistema implementado.
+
+También se podrán realizar pruebas utilizando diferentes combinaciones de características para analizar cómo afectan a las recomendaciones.
+
+🔐 Seguridad
+
+Las claves de las APIs se almacenarán mediante variables de entorno y no se incluirán directamente en el código fuente.
+
+El archivo .env deberá estar incluido en .gitignore:
+
+.env
+.venv/
+__pycache__/
+*.pyc
+
+🤝 Contribución
+
+Para contribuir:
+
+1. Haz un clon del repositorio.
+   git clone [https://github.com/Proyectos-UE/Proyecto-infraestructura.git](https://github.com/Proyectos-UE/Proyecto-infraestructura.git)
+
+2. Crea una nueva rama y cambiáte a esta de manera automática:
+   git switch -c rama_ejemplo
+   Cada vez que te quieras cambiar a una rama usar comando:
+   git switch nombre_rama
+   Para comprobar la rama, sale abajo a la izquiera o usar comando:
+   git branch
+   
+3. Comprueba que estas conectado correctamente:
+   git remote -v
+4. Comprueba que tienes el proyecto actualizado usando fetch:
+   - Si estas en la rama_ejemplo:
+     git switch main
+     git pull origin main
+     git switch rama_ejemplo
+     git merge main
+   - Si ya estas en la rama main (que no deberías):
+     git pull origin main
+
+
+5. Realiza tus cambios.
+6. Añadir tus cambias usando:
+   git add nombre_del_archivo
+   o:
+   git add . (para cambiar todos los archivos)
+
+7. Haz commit de los cambios:
+   git commit -m "feat: añadir nueva funcionalidad"
+
+
+8. Sube la rama:
+   git push -u origin rama_ejemplo
+
+
+9. Abre un Pull Request y resolver posibles conflictos.
+
+
+📚 Tecnologías
+
+🐍 Python
+
+🌐 HTML
+
+🎨 CSS
+
+🤖 Machine Learning — Aprendizaje no supervisado
+
+🎬 The Movie Database (TMDB) API
+
+🤖 Cohere API — planificado
+
+🧪 Testing — por definir
+
+👥 Equipo
+
+Proyecto desarrollado por:
+
+- Andrea Belaunzaran
+
+- Ashley Harris
+
+- Anastasia Lagüera 
+
+- Iñigo Erce 
+
+🎬 Estado del proyecto:
+
+🚧 En desarrollo
+
+El sistema de recomendación, la arquitectura definitiva y la integración con inteligencia artificial se encuentran todavía en fase de investigación y desarrollo.
+
+<p align="center"> 🎬 <strong>Movie Recommendation System</strong> <br> <sub>Encuentra tu próxima película favorita.</sub> </p>
+
+
+# API REST de Películas (FastAPI + Uvicorn) - Entregable 1
+
+## Instrucciones de Ejecución Local
+
+1. Instalar las dependencias necesarias:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Configurar las variables de entorno:
+   Copiar `.env.example` a `.env` y definir la clave secreta:
+   ```bash
+   SECRET_API_KEY=mi_token_secreto_123
+   ```
+
+3. Ejecutar el servidor Uvicorn:
+   ```bash
+   python app/app.py
+   ```
+   O alternativamente desde el módulo app:
+   ```bash
+   uvicorn app.app:app --reload
+   ```
+
+4. Acceder a la documentación OpenAPI interactiva (Swagger UI) en:
+   `http://127.0.0.1:8000/docs`
+
 `PK` representa una **Primary Key (clave primaria)** y `FK` una **Foreign Key (clave foránea)**.
 
 ---
