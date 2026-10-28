@@ -49,7 +49,7 @@ def movies():
 
     return movies["results"]
 
-@rutas.get("/search")
+@rutas.get("/movies/search")
 def search(request: Request, title: str=""):
 
     result_search = search_movies(title)
