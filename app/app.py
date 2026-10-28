@@ -7,6 +7,12 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 
+
+@app.get("/health")
+def health():
+    """ Comprueba que nuestra API funciona"""
+    return {"status": "ok"}
+
 #para comprobar que nuestro end point esta protegido, se cambiará/modificará en un futuro para que la función tenga utilidad
 @app.get("/admin/status",dependencies=[Depends(require_admin_key)])
 def admin_status():
@@ -17,12 +23,15 @@ def admin_status():
 
 @app.get("/")
 def home(request: Request):
+    """
+    Home llamará a pelis famosas, listas y predicción y búsqueda
+    """
     movies = get_movies() 
     if movies is None:
-        raise HTTPException(
-            status_code=503,
-            detail="Movie service is currently unavailable"
-        )
+            raise HTTPException(
+                status_code=503,
+                detail="Movie service is currently unavailable"
+            )
     return templates.TemplateResponse(
         request=request,
         name="index.html",
@@ -31,28 +40,34 @@ def home(request: Request):
         }
     )
 
-@app.get("/search")
+@app.get("/movies")
+def movies():
+    """
+    Lista con todas las peliculas más busqueda
+    """
+    movies = get_movies() 
+    if movies is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Movie service is currently unavailable")
+    return movies["results"]
+
+@app.get("/movies/search")
 def search(request: Request, title: str):
     if not title:
-        return templates.TemplateResponse(
-            request=request,
-            name="index.html",
-            context={
-                "movies": get_movies()["results"]
-            }
-        )
-    search_results = search_movies(title)
-    if search_results is None:
+        movies = get_movies()
+
+    if movies is None:
         raise HTTPException(
             status_code=503,
             detail="Movie service is currently unavailable"
         )
+
     return templates.TemplateResponse(
         request=request,
-        name="search.html",
+        name="index.html",
         context={
-            "movies": search_results["results"],
-            "title": title
+            "movies": movies["results"]
         }
     )
 

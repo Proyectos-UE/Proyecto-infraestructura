@@ -33,7 +33,7 @@ def hacer_request(url, params = None):
         
 def get_movies():
     """
-    Devuelve todas las pelis
+    Devuelve las pelis populares
     """
     url = "https://api.themoviedb.org/3/movie/popular"
 
