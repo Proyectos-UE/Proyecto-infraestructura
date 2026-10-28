@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.templating import Jinja2Templates
-from tmdb.api import get_movies, search_movies
-from security import require_admin_key
+from backend.app.tmdb.api import get_movies, search_movies
+from backend.app.security import require_admin_key
 
 app = FastAPI()
 
