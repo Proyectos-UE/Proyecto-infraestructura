@@ -68,19 +68,36 @@ def search(request: Request, title: str=Query(max_length = 50)):
         }
     )
 
-@rutas.api_route("/login", methods=["GET", "POST"])
+@rutas.api_route("/login", methods=["GET", "POST"]) #no esta puesta todavia como opción, escribir manualmente la ruta
 async def manage_users(request: Request):
     """
     Recibe los datos del formulario de HTML, confirma que el usuario ya existe en la BD
     """
     user_email = None
+    #simulación autenticación y autorizaión
+    usuario = {
+        "email": "test@gmail.com",
+        "password": "1234",
+        "status": "registered" #rol varia entre si el usuario esta registrado o no, si no lo está, se considera como visitante
+    }
     if request.method == "POST":
-        await request.form()
-        user_email = request.form.get("email")
+        form = await request.form()
+        user_email = form.get("email")
+        password = form.get("password")
         print(user_email)
+
+    if user_email == usuario["email"] and password == usuario["password"]:
+
+        if usuario["status"] == "registered":
+                mensaje = "Usuario autenticado y autorizado"
+        else:
+                mensaje = "No está registrado"
+
+    else:
+        mensaje = "Correo o contraseña incorrectos"
 
     return templates.TemplateResponse(
         request=request,
         name="login.html",
-        context={"email": user_email}
+        context={"mensaje": mensaje}
     )    
