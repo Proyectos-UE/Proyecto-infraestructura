@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from backend.tmdb.api import get_movies, search_movies
 from backend.security import require_admin_key
 from backend.models import Movie
-from flask import Flask, render_template, request
+import requests
 
 rutas = APIRouter()
 
