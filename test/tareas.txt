@@ -36,3 +36,5 @@ autenticación para poder hacer login
 autorización para poder modificar la lista y preferencias 
 
 -Bajar los datos de la base de datos, estos se usarán para el modelo y necesitaremos de una autenticación para ello pero diferente a lo de las APIs
+
+- Guardar en cache la sesión de los usuarios
